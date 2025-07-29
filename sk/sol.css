@@ -1036,3 +1036,8 @@
     font-size: 12px;
   }
 }
+.g-recaptcha{
+  display: flex; 
+  justify-content: center; 
+  margin: 20px 0;
+}
