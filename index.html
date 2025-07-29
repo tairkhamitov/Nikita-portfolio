@@ -18,6 +18,9 @@
 </head>
 <body>
 <div class="multi-curtain">
+  <div class="loading-text-container">
+    <span id="loading-text">Please wait</span><span class="dots"></span>
+  </div>
   <div class="curtain curtain-1"></div>
   <div class="curtain curtain-2"></div>
   <div class="curtain curtain-3"></div>
@@ -574,9 +577,60 @@ setInterval(() => {
 <script>
   window.addEventListener("load", () => {
     const curtain = document.querySelector(".multi-curtain");
+    curtain.classList.add("animate");
+
     setTimeout(() => {
       curtain.style.display = "none";
-    }, 700); // чуть больше суммарной длительности анимаций
+    }, 1000); // через 1 сек убираем с экрана
+  });
+</script>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    const curtain = document.querySelector(".multi-curtain");
+
+    // ⛔ Если уже видел — сразу скрываем шторку без анимации
+    if (sessionStorage.getItem("hasSeenCurtain") === "true") {
+      if (curtain) curtain.style.display = "none";
+      return;
+    }
+
+    // ✅ Иначе — запускаем анимацию как обычно
+    const texts = [
+      "Please wait",
+      "Setting up the camera",
+      "Adjusting the lights",
+      "Waiting for the model",
+      "Camera, action!"
+    ];
+
+    let currentIndex = 0;
+    const textEl = document.getElementById("loading-text");
+
+    const interval = setInterval(() => {
+      currentIndex = (currentIndex + 1) % texts.length;
+      if (textEl) {
+        textEl.textContent = texts[currentIndex];
+      }
+    }, 3000); // смена текста каждые 4 сек
+
+    function hideCurtain() {
+      curtain.classList.add("animate", "fade-out"); // запускаем шторки и текст
+
+      setTimeout(() => {
+        curtain.style.display = "none";
+      }, 1000); // синхронно с анимацией шторок
+    }
+    window.addEventListener("load", () => {
+      clearInterval(interval);
+      sessionStorage.setItem("hasSeenCurtain", "true"); // ✅ Помечаем как показанную
+      hideCurtain();
+    });
+
+    setTimeout(() => {
+      clearInterval(interval);
+      sessionStorage.setItem("hasSeenCurtain", "true"); // ✅ Даже если не дождались load
+      hideCurtain();
+    }, 10000);
   });
 </script>
 
