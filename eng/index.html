@@ -293,11 +293,14 @@
   <footer class="site-footer reveal">
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="https://files.catbox.moe/h1aqug.png" alt="DevNova logo" loading="lazy">
+        <a href="https://devnova.eu" target="_blank" rel="noopener noreferrer">
+          <img src="https://files.catbox.moe/h1aqug.png" alt="DevNova logo" loading="lazy">
+        </a>
       </div>
       <p class="footer-text">© Powered by DevNova 2025, All rights reserved</p>
     </div>
   </footer>
+  
 
 
 <script>const heroHeader=document.getElementById('heroHeader');const mainHeader=document.getElementById('mainHeader');window.addEventListener('scroll',()=>{if(window.scrollY>window.innerHeight*0.3){heroHeader.style.opacity='0';heroHeader.style.pointerEvents='none';mainHeader.classList.add('visible')}else{heroHeader.style.opacity='1';heroHeader.style.pointerEvents='auto';mainHeader.classList.remove('visible')}});</script><script>const desktopVideos=["https://files.catbox.moe/796o03.mp4","https://files.catbox.moe/e9hx57.mp4","https://files.catbox.moe/o4z4n8.mp4","https://files.catbox.moe/efye17.mp4","https://files.catbox.moe/pi909y.mp4","https://files.catbox.moe/h95oe0.mp4"];const mobileVideos=["https://files.catbox.moe/8cmhxo.mp4"];const isMobile=window.innerWidth<=768;const videos=isMobile?mobileVideos:desktopVideos;const container=document.getElementById("heroVideoSection");let currentIndex=0;if(isMobile){const overlay=document.querySelector(".video-overlay");container.innerHTML='';if(overlay)container.appendChild(overlay);const videoEl=document.createElement("video");videoEl.src=videos[0];videoEl.autoplay=!0;videoEl.muted=!0;videoEl.loop=!0;videoEl.playsInline=!0;videoEl.className="bg-video";Object.assign(videoEl.style,{position:"absolute",top:0,left:0,width:"100%",height:"100%",objectFit:"cover",opacity:1,zIndex:0});container.appendChild(videoEl);document.addEventListener("touchstart",()=>{videoEl.play().catch(e=>console.warn("Play error:",e))},{once:!0})}else{function renderThreeVideos(startIndex){container.innerHTML='<div class="video-overlay"></div>';for(let i=0;i<3;i++){const videoIndex=(startIndex+i)%videos.length;const slot=document.createElement("div");slot.className="video-slot";const video=document.createElement("video");video.src=videos[videoIndex];video.autoplay=!0;video.muted=!0;video.loop=!0;video.playsInline=!0;slot.appendChild(video);container.appendChild(slot);setTimeout(()=>slot.classList.add("show"),i*0)}}
