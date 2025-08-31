@@ -1,0 +1,8 @@
+{
+  "name": "nzmov-form",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "nodemailer": "^7.0.6"
+  }
+}

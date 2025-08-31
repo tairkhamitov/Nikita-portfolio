@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <!-- Favicon для обычных браузеров -->
+<link rel="icon" type="image/webp" sizes="32x32" href="https://files.catbox.moe/rz5bu3.webp">
+<link rel="icon" type="image/webp" sizes="16x16" href="https://files.catbox.moe/rz5bu3.webp">
+
+<!-- Для Apple устройств (iPhone, iPad) -->
+<link rel="apple-touch-icon" sizes="180x180" href="https://files.catbox.moe/rz5bu3.webp">
+  <title>Success | DevNova</title>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Unbounded', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1c1c1c);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      max-width: 700px;
+      padding: 30px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    .checkmark {
+      width: 100px;
+      height: 100px;
+      margin: 0 auto 25px;
+    }
+
+    .checkmark svg {
+      width: 100%;
+      height: 100%;
+      stroke: #ececec;
+      stroke-width: 6;
+      stroke-dasharray: 150;
+      stroke-dashoffset: 150;
+      fill: none;
+      animation: draw 1.5s forwards ease-in-out;
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+      background: linear-gradient(90deg, #eeeeee, #ffffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #cfcfcf;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 28px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #eeeeee, #b1b1b1);
+      color: #0a0a0a;
+      font-weight: bold;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: linear-gradient(135deg, #eeeeee, #b1b1b1);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(236, 236, 236, 0.3);
+    }
+
+    /* Animations */
+    @keyframes draw {
+      to { stroke-dashoffset: 0; }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #a5a5a5; }
+      to { text-shadow: 0 0 20px #8d8d8d; }
+    }
+
+    /* Slovak version */
+    .lang {
+      margin-top: 35px;
+      font-size: 0.95rem;
+      color: #9f9f9f;
+    }
+    .footer-logo img{
+      width: 70px;
+
+    }
+    .footer-text{
+      font-size: 15px;
+    }
+    .footer-logo,
+    .footer-text{
+      transform: translateY(250px);
+    }
+    @media (max-width: 768px){
+    .footer-logo img{
+      width: 30px;
+
+    }
+    .footer-text{
+      font-size: 7px;
+    }
+    .footer-logo,
+    .footer-text{
+      transform: translateY(95px);
+    }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="checkmark">
+      <svg viewBox="0 0 52 52">
+        <path d="M14 27l7 7 17-17"/>
+      </svg>
+    </div>
+    <h1>Thank you!</h1>
+    <p>We will respond within <strong>2 hours</strong>.</p>
+    <a href="index.html" class="btn">Back to Home</a>
+
+    <div class="lang">
+      🇸🇰 Ďakujeme, odpovieme vám do <strong>2 hodín</strong>.
+    </div>
+      <div class="footer-logo">
+        <a href="https://devnova.eu" target="_blank" rel="noopener noreferrer">
+          <img src="https://files.catbox.moe/h1aqug.png" alt="DevNova logo" loading="lazy">
+        </a>
+      </div>
+      <p class="footer-text">© Powered by DevNova 2025, All rights reserved</p>
+    </div>
+  </div>
+</body>
+</html>
