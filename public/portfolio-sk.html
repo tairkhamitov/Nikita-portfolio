@@ -238,32 +238,32 @@
 
 
   <section class="contact-form-section reveal">
-  <h2 class="form-title" id="rezervacia">Rezervácia</h2>
-  <form class="contact-form" action="https://formsubmit.co/nikitazavgorodny@gmail.com" method="POST">
-    <div class="form-row">
-      <input type="text" name="name" placeholder="Meno a priezvisko" required>
-      <input type="email" name="email" placeholder="Email" required>
-    </div>
-    <div class="form-row">
-      <input type="tel" name="phone" placeholder="Telefónne číslo">
-      <input type="text" name="subject" placeholder="Téma spolupráce">
-    </div>
-    <div class="form-group" style="margin-left: 12%;">
-      <label for="services" style="margin-right: 170px;">Vyberte si služby:</label>
-      <div class="checkbox-group">
-        <label><input type="checkbox" name="services[]" value="Foto"> 📸 Foto</label>
-        <label><input type="checkbox" name="services[]" value="Video"> 🎥 Video</label>
-        <label><input type="checkbox" name="services[]" value="Drone"> 🚁 Drone</label>
-        <label><input type="checkbox" name="services[]" value="Event"> 📅 Event</label>
-        <label><input type="checkbox" name="services[]" value="Food"> 🍽️ Food</label>
-        <label><input type="checkbox" name="services[]" value="Fashion"> 👗 Fashion</label>
-        <label><input type="checkbox" name="services[]" value="Corporate"> 👨‍💼 Corporate</label>
+    <h2 class="form-title" id="rezervacia">Rezervácia</h2>
+    <form id="nzmovForm" method="POST">
+      <div class="form-row">
+        <input type="text" name="name" placeholder="Meno a priezvisko" required>
+        <input type="email" name="email" placeholder="Email" required>
       </div>
-    </div>
-    <textarea name="message" rows="5" placeholder="Napíšte mi viac o tom, čo by ste chceli. To bude mať vplyv na cenu" required></textarea>
-    <div class="g-recaptcha" data-sitekey="6Ldvk5MrAAAAAJqPH8K1PJlpSHZpdLryolnxYztu"></div>
-    <button type="submit" class="form-submit">Odoslať</button>
-  </form>
+      <div class="form-row">
+        <input type="tel" name="phone" placeholder="Telefónne číslo">
+        <input type="text" name="subject" placeholder="Téma spolupráce">
+      </div>
+      <div class="form-group" style="margin-left: 12%;">
+        <label for="services" style="margin-right: 235px;">Vyberte si služby:</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="services[]" value="Foto"> 📸 Foto</label>
+          <label><input type="checkbox" name="services[]" value="Video"> 🎥 Video</label>
+          <label><input type="checkbox" name="services[]" value="Drone"> 🚁 Drone</label>
+          <label><input type="checkbox" name="services[]" value="Event"> 📅 Event</label>
+          <label><input type="checkbox" name="services[]" value="Food"> 🍽️ Food</label>
+          <label><input type="checkbox" name="services[]" value="Fashion"> 👗 Fashion</label>
+          <label><input type="checkbox" name="services[]" value="Corporate"> 👨‍💼 Corporate</label>
+        </div>
+      </div>
+      <textarea name="message" rows="5" placeholder="Napíšte mi viac o tom, čo by ste chceli. To bude mať vplyv na cenu" required></textarea>
+      <div class="g-recaptcha" data-sitekey="6Ldvk5MrAAAAAJqPH8K1PJlpSHZpdLryolnxYztu"></div>
+      <button type="submit" class="form-submit">Odoslať</button>
+    </form>
   </section>
 
   <div class="form-social-links">
@@ -283,6 +283,31 @@
       <p class="footer-text">© Powered by DevNova 2025, All rights reserved</p>
     </div>
   </footer>
+  
+  <script>
+  document.getElementById('nzmovForm').addEventListener('submit', async function (e) {
+    e.preventDefault();
+    const formData = Object.fromEntries(new FormData(this).entries());
+
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        window.open('/success.html', '_blank');
+      } else {
+        alert(result.error || 'Chyba pri odosielaní formulára.');
+      }
+    } catch (err) {
+      console.error(err);
+      alert('Chyba spojenia so serverom.');
+    }
+  });
+  </script>
 
 </script><script>const carousel=document.getElementById("testimonialCarousel");const dotsContainer=document.getElementById("testimonialDots");const testimonials=Array.from(carousel.children);let currentSlide=0;testimonials.forEach((_,i)=>{const dot=document.createElement("button");dot.addEventListener("click",()=>showSlide(i));dotsContainer.appendChild(dot)});const dots=dotsContainer.querySelectorAll("button");function showSlide(index){currentSlide=index;const container=document.getElementById("carouselContainer");const isMobile=window.innerWidth<=768;const offset=index*(isMobile?container.offsetWidth*1.112:container.offsetWidth/3);carousel.style.transform=`translateX(-${offset}px)`;testimonials.forEach((card,i)=>{card.classList.toggle('active',i===index)});dots.forEach(dot=>dot.classList.remove("active"));dots[index].classList.add("active")}
 showSlide(0);setInterval(()=>{currentSlide=(currentSlide+1)%testimonials.length;showSlide(currentSlide)},6000);</script><script>const reveals=document.querySelectorAll('.reveal');const observer=new IntersectionObserver(entries=>{entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('active');observer.unobserve(entry.target)}})},{threshold:0.1});reveals.forEach(el=>observer.observe(el));</script><script>window.addEventListener("load",()=>{const curtain=document.querySelector(".multi-curtain");setTimeout(()=>{curtain.style.display="none"},700)});</script><!-- Bootstrap 5.3 JS Bundle with Popper --><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoYz1HIcje39Wm4jDKdf19U8gI4ddQ3Qn2e5hff+gi/9GUX" crossorigin="anonymous"></script><script>const burgerIcon=document.getElementById("burgerIcon");const mobileMenu=document.getElementById("mobileMenu");burgerIcon.addEventListener("click",()=>{mobileMenu.classList.toggle("open")});document.querySelectorAll("#mobileMenu a").forEach(link=>{link.addEventListener("click",()=>{mobileMenu.classList.remove("open")})});</script><script>const buttons=document.querySelectorAll('.filter-btn');const items=document.querySelectorAll('.portfolio-item');let activeGenres=new Set();buttons.forEach(btn=>{btn.addEventListener('click',()=>{const genre=btn.dataset.genre;btn.classList.toggle('active');if(activeGenres.has(genre)){activeGenres.delete(genre)}else{activeGenres.add(genre)}
