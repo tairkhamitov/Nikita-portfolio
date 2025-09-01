@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Nikita Zavgorodnii</title>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="../style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -92,7 +92,7 @@
 <section class="parallax-section">
   <div class="parallax-text">
     <h2>Od detstva som cítil, že moje miesto je vo svete tvorby.</h2>
-    <h1 style="margin-bottom: 40px; margin-top: 40px;">Kamera, emócie, svetlo – to je môj jazyk.</h1>
+    <h1 style="margin-bottom: 40px; margin-top: 40px; font-size: 22px;">Kamera, emócie, svetlo – to je môj jazyk.</h1>
     <p>
       Moje meno je Nikita Zavgorodnii, som video maker a fotograf s viac ako 9-ročnými skúsenosťami. Pochádzam z ruského mesta Krasnodar, no dnes pôsobím na Slovensku, kde som našiel svoj druhý domov aj priestor na tvorbu.
     </p>
@@ -254,34 +254,33 @@
 
 <div style="height: 20vh;"></div>
 
-  <section class="contact-form-section reveal">
-    <h2 class="form-title" id="rezervacia">Rezervácia</h2>
-    <form id="nzmovForm" method="POST">
-      <div class="form-row">
-        <input type="text" name="name" placeholder="Meno a priezvisko" required>
-        <input type="email" name="email" placeholder="Email" required>
-      </div>
-      <div class="form-row">
-        <input type="tel" name="phone" placeholder="Telefónne číslo">
-        <input type="text" name="subject" placeholder="Téma spolupráce">
-      </div>
-      <div class="form-group" style="margin-left: 12%;">
-        <label for="services" style="margin-right: 235px;">Vyberte si služby:</label>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="services[]" value="Foto"> 📸 Foto</label>
-          <label><input type="checkbox" name="services[]" value="Video"> 🎥 Video</label>
-          <label><input type="checkbox" name="services[]" value="Drone"> 🚁 Drone</label>
-          <label><input type="checkbox" name="services[]" value="Event"> 📅 Event</label>
-          <label><input type="checkbox" name="services[]" value="Food"> 🍽️ Food</label>
-          <label><input type="checkbox" name="services[]" value="Fashion"> 👗 Fashion</label>
-          <label><input type="checkbox" name="services[]" value="Corporate"> 👨‍💼 Corporate</label>
-        </div>
-      </div>
-      <textarea name="message" rows="5" placeholder="Napíšte mi viac o tom, čo by ste chceli. To bude mať vplyv na cenu" required></textarea>
-      <div class="g-recaptcha" data-sitekey="6Ldvk5MrAAAAAJqPH8K1PJlpSHZpdLryolnxYztu"></div>
-      <button type="submit" class="form-submit">Odoslať</button>
-    </form>
-  </section>
+  <form class="reservation-form">
+  <h2>Rezervácia</h2>
+
+  <div class="form-row">
+    <input type="text" placeholder="Meno a priezvisko" required>
+    <input type="email" placeholder="Email" required>
+  </div>
+
+  <div class="form-row">
+    <input type="text" placeholder="Telefónne číslo">
+    <input type="text" placeholder="Téma spolupráce">
+  </div>
+
+  <p>Vyberte si služby:</p>
+  <div class="services">
+    <label>📸 Foto</label>
+    <label>🎥 Video</label>
+    <label>🚁 Drone</label>
+    <label>📅 Event</label>
+    <label>🍽️ Food</label>
+    <label>👗 Fashion</label>
+    <label>👔 Corporate</label>
+  </div>
+
+  <textarea placeholder="Napíšte mi viac o tom, čo by ste chceli. To bude mať vplyv na cenu"></textarea>
+  <div class="g-recaptcha" data-sitekey="6Ldvk5MrAAAAAJqPH8K1PJlpSHZpdLryolnxYztu"></div>
+</form>
 
   <div class="form-social-links">
     <a href="https://t.me/znv_x" target="_blank">📨 Telegram</a>
