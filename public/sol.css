@@ -156,17 +156,28 @@ input:focus, textarea:focus {
   margin: 20px 0;
 }
 
+.services input {
+  display: none;
+}
+
+.services label:hover {
+  background: #000;
+  color: #fff;
+}
+
 .services label {
-  border: 2px solid black;
+  border: 2px solid rgb(0, 0, 0);
   border-radius: 30px;
   padding: 10px 20px;
   font-weight: 600;
   background: #f9f4ef;
   cursor: pointer;
   transition: 0.2s;
+  margin: 5px;
+  display: inline-block;
 }
 
-.services label:hover {
-  background: #000;
-  color: #fff;
+.services input:checked + label {
+  background: rgb(43, 26, 7);
+  color: white;
 }
